@@ -37,6 +37,8 @@ public class LoginTest {
         String user = profilePage.getUserName();
         assertEquals(ConfProperties.getProperty("login"),user);
 
+        profilePage.enterMail();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 
 
@@ -44,10 +46,10 @@ public class LoginTest {
 
     @AfterEach
     public void tearDown() {
-        profilePage.entryMenu();
-        profilePage.userLogout();
-//        mailPage.entryUserMenu();
-//        mailPage.usrLogout();
+//        profilePage.entryMenu();
+//        profilePage.userLogout();
+        mailPage.entryUserMenu();
+        mailPage.usrLogout();
         driver.quit();
     }
 }
